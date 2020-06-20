@@ -10,9 +10,10 @@
 
    float4 frag(v2f_img i) : SV_Target
    {
-       return float4(i.uv.x, i.uv.y, 0, 1);
+		float d = distance(float2(0.5,0.5),i.uv);
+		float a = abs(cos(_Time.y)) * 0.4;
+		return step( a , d ) ;
    }
-
    ENDCG
 
    SubShader
